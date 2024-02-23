@@ -1,11 +1,19 @@
 
 import React, { useState } from "react"
 import Button from "../Components/Button/Button"
+import History from "./History"
+import { MdHistory } from "react-icons/md";
+
+
 
 const Calculadora = () => {
 
     const [result, setResult] = useState(0)
     const [inputNumber, setinputNumber] = useState(' ')
+    const [showHistory, setShowHistory] = useState(false);
+    const [history, setHistory] = useState([]);
+
+    const fontStyles = {fontSize: '40px'};    
 
     const handleNumberClick = (number) => {
         setinputNumber((prevInput) => prevInput + number)
@@ -43,6 +51,20 @@ const Calculadora = () => {
         setinputNumber('')
     }
 
+    const loadOperationFromHistory = (operation, result) => {
+        setInputNumber(result.toString());
+    };
+    
+    const HistoryButton = (onClick) => {
+
+        return (
+         <button onClick={() => setHistory (!showHistory)} >
+         <MdHistory style={fontStyles} />
+         </button>
+        )
+     
+     };
+
     return (
 
         <div>
@@ -52,6 +74,12 @@ const Calculadora = () => {
 
                     <div className="w-full h-40 bg-gradient-to-b from-gray-800 to-gray-700 flex items-end text-right">
                         <div className="w-full py-5 px-6 text-6xl text-white font-thin">
+
+                        <HistoryButton onClick={() => setShowHistory(!showHistory)}>
+                
+                    </HistoryButton>
+
+                            
                             {inputNumber !== "" ?
                                 (inputNumber.toString().includes('*') ? inputNumber.toString().replace('*', 'x') :
                                     (inputNumber.toString().includes('/') ? inputNumber.toString().replace('/', '÷') : inputNumber))
@@ -138,6 +166,7 @@ const Calculadora = () => {
                                 <div className="w-2/4 border-r border-indigo-400">
                                     <Button onClick={handleEqualsClick}>=</Button>
                                 </div>
+                                
                             </div>
                         </div>
                         <div>
