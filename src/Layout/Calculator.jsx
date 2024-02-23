@@ -1,5 +1,6 @@
 
 import React, { useState } from "react"
+import Button from "../Components/Button/Button"
 
 const Calculadora = () => {
 
@@ -31,14 +32,13 @@ const Calculadora = () => {
         setinputNumber('');
     };
 
-
     const handleClearClick = () => {
         setResult(" ");
         setinputNumber("");
 
     };
 
-    const handleEqualsClick = () => {
+    const handleEqualsClick = (e) => {
         setResult(eval(inputNumber))
         setinputNumber('')
     }
@@ -64,100 +64,79 @@ const Calculadora = () => {
                         <div className="w-full bg-gradient-to-b from-indigo-400 to-indigo-500">
                             <div className="flex w-full">
                                 <div className="w-1/4  border-r border-b  border-indigo-400">
-                                    <button
+                                    <Button
                                         onClick={() => handleClearClick()}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">C</button>
+                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">C</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">+/-</button>
+                                    <Button className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">+/-</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b  border-indigo-400">
-                                    <button className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">%</button>
+                                    <Button className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-opacity-50 text-xl font-light">%</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b  border-indigo-400">
-                                    <button onClick={() => handleNumberClick('/')}
-                                        className="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-2xl font-light">÷</button>
+                                    <Button onClick={() => handleNumberClick('/')}>÷</Button>
                                 </div>
 
                             </div>
                             <div className="flex w-full">
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button
-                                        onClick={() => handleNumberClick(7)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">
-                                        7
-                                    </button>
+                                    <Button onClick={() => handleNumberClick(7)}>7</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(8)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">8</button>
+                                <Button onClick={() => handleNumberClick(8)}>8</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(9)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">9</button>
+                                    <Button onClick={() => handleNumberClick(9)}>9</Button>
                                 </div>
                                 {/*Operadores */}
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick('*')}
-                                        className="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light">x</button>
+                                    <Button onClick={() => handleNumberClick('*')}>x</Button>
                                 </div>
                             </div>
 
                             <div className="flex w-full">
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(4)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">4</button>
+                                    <Button onClick={() => handleNumberClick(4)}>4</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(5)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">5</button>
+                                    <Button onClick={() => handleNumberClick(5)}>5</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(6)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">6</button>
+                                    <Button onClick={() => handleNumberClick(6)}>6</Button>
                                 </div>
                                 {/*Operadores */}
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick('-')}
-                                        className="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light">-</button>
+                                    <Button onClick={() => handleNumberClick('-')}>-</Button>
                                 </div>
                             </div>
 
                             <div className="flex w-full">
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(1)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">1</button>
+                                    <Button onClick={() => handleNumberClick(1)}>1</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(2)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">2</button>
+                                    <Button onClick={() => handleNumberClick(2)}>2</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-                                    <button onClick={() => handleNumberClick(3)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">3</button>
+                                    <Button onClick={() => handleNumberClick(3)}>3</Button>
                                 </div>
                                 {/*Operadores */}
                                 <div className="w-1/4 border-r border-b border-indigo-400">
-
-                                    <button
-                                        onClick={() => handleNumberClick('+')}
-                                        className="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-10 hover:bg-opacity-20 text-white text-xl font-light">+</button>
+                                    <Button onClick={() => handleNumberClick('+')}>+</Button>
                                 </div>
                             </div>
 
                             <div className="flex w-full">
                                 <div className="w-1/4 border-r border-indigo-400">
-                                    <button onClick={() => handleNumberClick(0)}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">0</button>
+                                    <Button onClick={() => handleNumberClick(0)}>0</Button>
                                 </div>
                                 <div className="w-1/4 border-r border-indigo-400">
-                                    <button onClick={() => handleNumberClick(".")}
-                                        className="w-full h-16 outline-none focus:outline-none hover:bg-indigo-700 hover:bg-opacity-20 text-white text-xl font-light">.</button>
+                                    <Button onClick={() => handleNumberClick(".")}>.</Button>
                                 </div>
                                 {/*Operadores */}
                                 <div className="w-2/4 border-r border-indigo-400">
-                                    <button onClick={handleEqualsClick}
-                                        className="w-full h-16 outline-none focus:outline-none bg-indigo-700 bg-opacity-30 hover:bg-opacity-40 text-white text-xl font-light">=</button>
+                                    <Button onClick={handleEqualsClick}>=</Button>
                                 </div>
                             </div>
                         </div>
@@ -171,5 +150,6 @@ const Calculadora = () => {
     )
 
 }
+
 
 export default Calculadora
