@@ -1,16 +1,13 @@
-// import { MdHistory } from "react-icons/md";
-// import History from "../../Layout/History";
+import { MdHistory } from "react-icons/md";
 
-// const fontStyles = {fontSize: '40px'};
+const HistoryButton = ({ onClick }) => {
 
-// const HistoryButton = (onClick) => {
+    return (
+        <button onClick={onClick} >
+            <MdHistory size={25} color="white"/>
+        </button>
+    )
 
-//    return (
-//     <button onClick={() => setHistory (!showHistory)} >
-//     <MdHistory style={fontStyles} />
-//     </button>
-//    )
- 
-// }
+}
 
-// export default HistoryButton;
+export default HistoryButton;
